@@ -2,10 +2,12 @@ const container = document.querySelector("#container");
 const button = document.querySelector("button");
 button.addEventListener("click", newSlate);
 
+let sideLength = 16;
+
 function newSlate() {
-    let sideLength = 16;
+    let defaultValue = sideLength.toString();
     do {
-        sideLength = parseInt(prompt("Enter number of squares per side for the new grid (max 100)", "16"));
+        sideLength = parseInt(prompt("Enter number of squares per side for the new grid (max 100)", defaultValue));
     } while (sideLength > 0 && sideLength > 100)
     container.replaceChildren();
     drawGrid(sideLength);
@@ -23,6 +25,5 @@ function drawGrid(gridSize) {
             squareDiv.addEventListener("mouseenter", () => squareDiv.classList.add("hovered"));
         }
     }
-    console.log(pixelSize);
 }
 
