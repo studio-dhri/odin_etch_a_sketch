@@ -22,7 +22,11 @@ function drawGrid(gridSize) {
             squareDiv.style.width = pixelSize + "px";
             squareDiv.style.height = pixelSize + "px";
             container.appendChild(squareDiv);
-            squareDiv.addEventListener("mouseenter", () => squareDiv.classList.add("hovered"));
+            squareDiv.addEventListener("mouseenter", (e) => {
+                if (e.shiftKey) {
+                    squareDiv.classList.add("hovered")
+                }
+            });
         }
     }
 }
